@@ -1,9 +1,10 @@
 <script setup>
-import HeaderBar from '@/components/HeaderBar.vue'
+import MainHeader from '@/components/Mainheader.vue'
 </script>
 
 <template>
-  <HeaderBar />
+  <MainHeader />
+  <p>Home page</p>
   <p>This page is currently a WIP</p>
 </template>
 

@@ -1,12 +1,11 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
+const route = useRoute()
 </script>
 
 <template>
   <header>
-    <div id="image">
-      <p>[insert pfp]</p>
-    </div>
+    <p>{{ route.name }}</p>
     <nav>
       <RouterLink to="/">Home</RouterLink>
     </nav>
@@ -15,10 +14,24 @@ import { RouterLink } from 'vue-router'
 
 <style scoped>
 header {
-  background-color: lime;
+  background-color: limegreen;
   padding: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  background-color: greenyellow;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+a:hover {
+  background-color: lime;
 }
 </style>

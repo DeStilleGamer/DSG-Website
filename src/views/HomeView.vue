@@ -1,11 +1,24 @@
 <script setup>
-import MainHeader from '@/components/MainHeader.vue'
+import { MainHeader, MainFooter } from '@/components'
 </script>
 
 <template>
   <MainHeader />
-  <p>Home page</p>
-  <p>This page is currently a WIP</p>
+  <main>
+    <section id="Name">
+      <h1>De Stille Gamer</h1>
+    </section>
+  </main>
+  <MainFooter />
 </template>
 
-<style scoped></style>
+<style scoped>
+#Name {
+  background-image: url('@/assets/Youtube_Banner.png');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 50px 0;
+  font-size: 40px;
+}
+</style>

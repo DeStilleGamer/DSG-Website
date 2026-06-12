@@ -12,4 +12,7 @@ import { RouterView } from 'vue-router'
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+body {
+  background-color: black;
+}
 </style>

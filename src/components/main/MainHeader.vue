@@ -8,6 +8,7 @@ const route = useRoute()
     <p>{{ route.name }}</p>
     <nav>
       <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/games">Games</RouterLink>
     </nav>
   </header>
 </template>

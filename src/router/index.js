@@ -9,6 +9,12 @@ const router = createRouter({
       component: () => import('@/views/HomeView.vue'),
       meta: { title: 'Home - DSG Website' },
     },
+    {
+      path: '/games',
+      name: 'games',
+      component: () => import('@/views/GamesView.vue'),
+      meta: { title: 'Games - DSG Website' },
+    },
   ],
 })
 

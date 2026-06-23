@@ -1,7 +1,5 @@
 <script setup>
 import games from '@/assets/data/games.json'
-import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
-// import 'vue-lite-youtube-embed/style.css'
 </script>
 
 <template>
@@ -9,13 +7,18 @@ import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
     <ul>
       <li v-for="game in games" :key="game.name">
         <h3>{{ game.name }}</h3>
-        <LiteYouTubeEmbed
-          v-if="game.playlistId !== null && game.coverVideoId !== null"
-          playlist
-          :id="game.playlistId"
-          :playlistCoverId="game.coverVideoId"
-          :title="game.name"
-        />
+        <a
+          v-if="game.playlistId && game.coverVideoId"
+          :href="`https://www.youtube.com/playlist?list=${game.playlistId}`"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            :src="`https://i.ytimg.com/vi/${game.coverVideoId}/hqdefault.jpg`"
+            :alt="game.name"
+            class="playlist-thumb"
+          />
+        </a>
         <div>
           <p v-if="game.status == 1" class="s1">Not yet played</p>
           <p v-if="game.status == 2" class="s2">Currently streaming</p>
@@ -47,9 +50,11 @@ li {
 
 h3 {
   padding: 5px;
+  text-align: center;
 }
 div {
   padding: 5px;
+  max-width: fit-content;
 }
 p {
   padding: 5px;
@@ -79,5 +84,24 @@ p {
 .s6 {
   /* Planned to re-stream */
   background-color: rgb(71, 71, 199);
+}
+
+.playlist-thumb {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 2px solid lightgreen;
+}
+
+.playlist-thumb:hover {
+  /* opacity: 1.15; */
+  transform: scale(1.02);
+}
+
+li:hover {
+  /* opacity: 0.85; */
+  transform: scale(1.02);
 }
 </style>

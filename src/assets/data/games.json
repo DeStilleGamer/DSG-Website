@@ -1,5 +1,10 @@
 [
-  { "status": 3, "name": "Subnautica", "playlistId": null, "coverVideoId": null },
+  {
+    "status": 3,
+    "name": "Subnautica",
+    "playlistId": "PLiU4KIcSUu3exC_p-0fXd2ZtHO74Vndwo",
+    "coverVideoId": "iLWI16Ymk4U"
+  },
   { "status": 1, "name": "Subnautica Below Zero", "playlistId": null, "coverVideoId": null },
   { "status": 1, "name": "Subnautica 2", "playlistId": null, "coverVideoId": null }
 ]

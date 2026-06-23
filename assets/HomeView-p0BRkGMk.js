@@ -1,1 +1,0 @@
-import{_ as e,a as t,c as n,p as r,r as i,u as a}from"./index-Wfz2E7BP.js";import{i as o,n as s,r as c,t as l}from"./main-rwHSo7M1.js";var u=o({__name:`HomeView`,setup(o){return(o,u)=>(r(),n(i,null,[a(e(c)),t(`main`,null,[a(e(l),{title:`De Stille Gamer`})]),a(e(s))],64))}},[[`__scopeId`,`data-v-7d0d862b`]]);export{u as default};

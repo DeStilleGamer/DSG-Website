@@ -10,10 +10,22 @@ const router = createRouter({
       meta: { title: 'Home - DSG Website' },
     },
     {
+      path: '/about',
+      name: 'about',
+      component: () => import('@/views/AboutView.vue'),
+      meta: { title: 'About - DSG Website' },
+    },
+    {
       path: '/games',
       name: 'games',
       component: () => import('@/views/GamesView.vue'),
       meta: { title: 'Games - DSG Website' },
+    },
+    {
+      path: '/achievements',
+      name: 'achievements',
+      component: () => import('@/views/AchievementsView.vue'),
+      meta: { title: 'Achievements - DSG Website' },
     },
   ],
 })

@@ -1,1 +1,0 @@
-import{c as e,f as t,i as n,l as r,o as i,r as a}from"./index-XSJyuQJV.js";import{i as o,n as s,r as c,t as l}from"./main-C7P6Saf3.js";var u=o({__name:`AboutView`,setup(o){return(o,u)=>(r(),i(a,null,[e(t(c)),e(t(l),{title:`About`}),u[0]||=n(`p`,null,`This page is currently a WIP and will be expanded on`,-1),e(t(s))],64))}},[[`__scopeId`,`data-v-3accde7e`]]);export{u as default};

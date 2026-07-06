@@ -1,1 +1,0 @@
-import{c as e,f as t,i as n,l as r,o as i,r as a}from"./index-DHetnC0f.js";import{i as o,n as s,r as c,t as l}from"./main-C-ttVjsb.js";var u=o({__name:`HomeView`,setup(o){return(o,u)=>(r(),i(a,null,[e(t(c)),n(`main`,null,[e(t(l),{title:`De Stille Gamer`})]),e(t(s))],64))}},[[`__scopeId`,`data-v-7d0d862b`]]);export{u as default};

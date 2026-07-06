@@ -5,6 +5,58 @@
     "playlistId": "PLiU4KIcSUu3exC_p-0fXd2ZtHO74Vndwo",
     "coverVideoId": "iLWI16Ymk4U"
   },
-  { "status": 1, "name": "Subnautica Below Zero", "playlistId": null, "coverVideoId": null },
-  { "status": 1, "name": "Subnautica 2", "playlistId": null, "coverVideoId": null }
+  {
+    "status": 5,
+    "name": "GTNH (2.1.2.0)",
+    "playlistId": "PLIB3bzrIeSMQ",
+    "coverVideoId": "ZysoI7dBn3I"
+  },
+  {
+    "status": 5,
+    "name": "PowerWash Simulator (old)",
+    "playlistId": "PLa_eQ2GW2PfM",
+    "coverVideoId": "_RsCrLgWiXs"
+  },
+  {
+    "status": 5,
+    "name": "Slime Rancher (old)",
+    "playlistId": "PLCnuawj1YY8M",
+    "coverVideoId": "b_kG3RAEZw0"
+  },
+  {
+    "status": 4,
+    "name": "Sea of Thieves",
+    "playlistId": "PLK2Rxy77muIo",
+    "coverVideoId": "HlXrmRtJCAA"
+  },
+  {
+    "status": 5,
+    "name": "Hypixel Skyblock Stranded",
+    "playlistId": "PLJFxW78CU6",
+    "coverVideoId": "qK7dykurC2E"
+  },
+  {
+    "status": 5,
+    "name": "Hypixel Skyblock Ironman",
+    "playlistId": "PLRfZ61rcnI_M",
+    "coverVideoId": "VMRXC3ZhVZE"
+  },
+  {
+    "status": 5,
+    "name": "Wynncraft HICH (old)",
+    "playlistId": "PLfQfePteIjUg",
+    "coverVideoId": "73NSMV9rTTA"
+  },
+  {
+    "status": 5,
+    "name": "Grounded Whoa! mode (old)",
+    "playlistId": "PLfQfePteIjUg",
+    "coverVideoId": "Ywm3VotuWLc"
+  },
+  {
+    "status": 3,
+    "name": "Hollow Knight",
+    "playlistId": "PLCGGeBeUtOjs",
+    "coverVideoId": "ENFwgDkvQVg"
+  }
 ]

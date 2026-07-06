@@ -44,6 +44,8 @@ ul {
   display: flex;
   justify-self: center;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 li {

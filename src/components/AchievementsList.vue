@@ -1,37 +1,28 @@
 <script setup>
-import games from '@/assets/data/games.json'
+import achievements from '@/assets/data/achievements.json'
 </script>
-
 <template>
-  <!-- <section>
-    <h2>Filters</h2>
-  </section> -->
   <section>
     <section></section>
     <section>
       <ul>
-        <li v-for="game in games" :key="game.name">
-          <h3>{{ game.name }}</h3>
-          <a
-            v-if="game.playlistId && game.coverVideoId"
-            :href="`https://www.youtube.com/playlist?list=${game.playlistId}`"
-            target="_blank"
-            rel="noopener"
-          >
-            <img
-              :src="`https://i.ytimg.com/vi/${game.coverVideoId}/hqdefault.jpg`"
-              :alt="game.name"
-              class="playlist-thumb"
-            />
-          </a>
-          <div id="playlistTags">
-            <p v-if="game.status == 1" class="s1">Not yet played</p>
-            <p v-if="game.status == 2" class="s2">Currently streaming</p>
-            <p v-if="game.status == 3" class="s3">Done streaming</p>
-            <p v-if="game.status == 4" class="s4">On pauze</p>
-            <p v-if="game.status == 5" class="s5">Discontinued</p>
-            <p v-if="game.status == 6" class="s6">Planned to re-stream</p>
-          </div>
+        <li v-for="achievement in achievements" :key="achievement.name">
+          <h3>{{ achievement.name }}</h3>
+          <article v-if="achievement.type == 1">
+            <!--Playlist-->
+            <a
+              v-if="achievement.playlistId && achievement.coverVideoId"
+              :href="`https://www.youtube.com/playlist?list=${achievement.playlistId}`"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                :src="`https://i.ytimg.com/vi/${achievement.coverVideoId}/hqdefault.jpg`"
+                :alt="achievement.name"
+                class="playlist-thumb"
+              />
+            </a>
+          </article>
         </li>
       </ul>
     </section>

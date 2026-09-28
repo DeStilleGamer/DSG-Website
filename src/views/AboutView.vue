@@ -1,8 +1,7 @@
 <script setup>
-import { MainHeader, MainTitle, MainWIP } from '@/components/main'
+import { MainTitle, MainWIP } from '@/components/main'
 </script>
 <template>
-  <MainHeader />
   <MainTitle title="About" />
   <MainWIP />
   <section class="aboutSection">

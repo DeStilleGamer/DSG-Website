@@ -1,10 +1,11 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import { MainFooter } from './components/main'
+import { MainFooter, MainHeader } from './components/main'
 </script>
 
 <template>
   <div id="app">
+    <MainHeader />
     <RouterView />
     <MainFooter id="footer" />
   </div>

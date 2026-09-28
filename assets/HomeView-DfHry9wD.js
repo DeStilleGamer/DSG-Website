@@ -1,0 +1,1 @@
+import{a as e,c as t,d as n,i as r,l as i,n as a,r as o,s,t as c}from"./index-pflKQgdJ.js";var l=o({__name:`HomeView`,setup(o){return(o,l)=>(i(),s(r,null,[e(`main`,null,[t(n(a),{title:`De Stille Gamer`})]),t(n(c))],64))}},[[`__scopeId`,`data-v-db8c2854`]]);export{l as default};

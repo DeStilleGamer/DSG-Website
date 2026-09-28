@@ -18,17 +18,18 @@ footer {
   position: sticky;
   bottom: 0;
   display: flex;
-  background-color: limegreen;
+  background-color: var(--primary);
   padding: 5px;
 }
 
 button {
-  background-color: greenyellow;
+  background-color: var(--accent-light);
   padding: 5px;
   border-radius: 5px;
-  border: 2x solid black;
+  border: 2px solid var(--black);
 }
 button:hover {
-  background-color: lime;
+  background-color: var(--accent-dark);
+  color: var(--primary);
 }
 </style>

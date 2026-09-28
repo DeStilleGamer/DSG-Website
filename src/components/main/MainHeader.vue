@@ -17,7 +17,7 @@ const route = useRoute()
 
 <style scoped>
 header {
-  background-color: limegreen;
+  background-color: var(--primary);
   padding: 15px;
   display: flex;
   flex-direction: row;
@@ -26,15 +26,22 @@ header {
   top: 0;
 }
 
+nav {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5px;
+}
+
 a {
   text-decoration: none;
-  color: black;
-  background-color: greenyellow;
+  color: var(--black);
+  background-color: var(--accent-light);
   padding: 5px;
   border-radius: 5px;
   border: 2px solid black;
 }
 a:hover {
-  background-color: lime;
+  background-color: var(--accent-dark);
+  color: var(--primary);
 }
 </style>

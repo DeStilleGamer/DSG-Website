@@ -1,9 +1,8 @@
 <script setup>
-import { MainHeader, MainTitle, MainWIP } from '@/components/main'
+import { MainTitle, MainWIP } from '@/components/main'
 </script>
 
 <template>
-  <MainHeader />
   <main>
     <MainTitle title="De Stille Gamer" />
   </main>

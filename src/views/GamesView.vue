@@ -1,10 +1,9 @@
 <script setup>
-import { MainHeader, MainTitle, MainWIP } from '@/components/main'
+import { MainTitle, MainWIP } from '@/components/main'
 import GamesList from '@/components/GamesList.vue'
 </script>
 
 <template>
-  <MainHeader />
   <main>
     <MainTitle
       title="GAMES"

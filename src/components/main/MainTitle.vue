@@ -29,7 +29,7 @@ defineProps({
   text-align: center;
   padding: 50px 0;
   font-size: 40px;
-  color: lightgreen;
-  text-shadow: 0px 0px 10px green;
+  color: var(--primary);
+  text-shadow: 0px 0px 10px var(--primary);
 }
 </style>

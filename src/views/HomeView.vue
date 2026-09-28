@@ -1,5 +1,5 @@
 <script setup>
-import { MainHeader, MainFooter, MainTitle } from '@/components/main'
+import { MainHeader, MainTitle, MainWIP } from '@/components/main'
 </script>
 
 <template>
@@ -7,8 +7,7 @@ import { MainHeader, MainFooter, MainTitle } from '@/components/main'
   <main>
     <MainTitle title="De Stille Gamer" />
   </main>
-  <p>This page is currently a WIP and will be expanded on</p>
-  <MainFooter />
+  <MainWIP />
 </template>
 
 <style scoped>
@@ -19,8 +18,5 @@ import { MainHeader, MainFooter, MainTitle } from '@/components/main'
   text-align: center;
   padding: 50px 0;
   font-size: 40px;
-}
-p {
-  color: white;
 }
 </style>

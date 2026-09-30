@@ -19,7 +19,7 @@ import achievements from '@/assets/data/achievements.json'
               <img
                 :src="`https://i.ytimg.com/vi/${achievement.coverVideoId}/hqdefault.jpg`"
                 :alt="achievement.name"
-                class="playlist-thumb"
+                class="thumbnail"
               />
             </a>
           </article>
@@ -41,64 +41,32 @@ ul {
 }
 li {
   list-style: none;
-  border: 2px solid green;
-  border-radius: 5px;
-  background-color: darkgreen;
-  box-shadow: 0px 0px 20px 1px lightgreen;
+  border: 2px solid var(--accent-dark);
+  border-radius: 15px;
+  background-color: var(--accent-light);
+  box-shadow: 0px 0px 20px 1px var(--accent-light);
 }
 
 h2 {
-  color: white;
+  color: var(--white);
 }
 h3 {
-  color: white;
-  padding: 5px;
+  color: var(--white);
+  padding: 5px 0 0 0;
   text-align: center;
 }
-#playlistTags {
-  padding: 5px;
-  max-width: fit-content;
-}
-p {
-  padding: 5px;
-  border-radius: 5px;
-}
 
-.s1 {
-  /* Not yet played */
-  background-color: rgb(206, 44, 44);
-}
-.s2 {
-  /* Currently streaming */
-  background-color: rgb(233, 233, 65);
-}
-.s3 {
-  /* Done streaming */
-  background-color: rgb(70, 248, 70);
-}
-.s4 {
-  /* On pauze */
-  background-color: rgb(100, 185, 238);
-}
-.s5 {
-  /* Discontinued */
-  background-color: rgb(255, 187, 61);
-}
-.s6 {
-  /* Planned to re-stream */
-  background-color: rgb(71, 71, 199);
-}
-
-.playlist-thumb {
+.thumbnail {
+  margin: 15px;
   width: 100%;
   max-width: 400px;
   border-radius: 12px;
   cursor: pointer;
   transition: 0.2s;
-  border: 2px solid lightgreen;
+  border: 2px solid var(--secondary);
 }
 
-.playlist-thumb:hover {
+.thumbnail:hover {
   /* opacity: 1.15; */
   transform: scale(1.02);
 }

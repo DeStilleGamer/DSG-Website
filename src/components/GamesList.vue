@@ -1,13 +1,60 @@
 <script setup>
-import games from '@/assets/data/games.json'
+import rawGamesData from '@/assets/data/games.json'
+import { ref, computed, watch } from 'vue'
+
+let gamesData = ref(rawGamesData)
+let currentPage = ref(1)
+let gameCount = ref(8)
+
+let maxGames = computed(() => {
+  return gamesData.value.length
+})
+
+let maxPageCount = computed(() => {
+  return Math.ceil(gamesData.value.length / gameCount.value)
+})
+
+watch(maxPageCount, (newMax) => {
+  if (currentPage.value > newMax) {
+    currentPage.value = newMax
+  }
+})
+
+let startCount = computed(() => {
+  return (currentPage.value - 1) * gameCount.value
+})
+
+let games = computed(() => {
+  return gamesData.value.slice(startCount.value, startCount.value + gameCount.value)
+})
+
+let visibleGames = computed(() => {
+  return games.value.length
+})
 </script>
 
 <template>
-  <!-- <section>
-    <h2>Filters</h2>
-  </section> -->
   <section>
-    <section></section>
+    <section class="gameFilters">
+      <h2>Filters</h2>
+      <!-- <pre>{{ { currentPage, gameCount, startCount, visibleGames } }}</pre> debug text -->
+      <div>
+        <div>
+          <label
+            >Game count:
+            <input type="range" step="1" min="1" v-model.number="gameCount" :max="maxGames" />
+            {{ visibleGames }}
+          </label>
+        </div>
+        <div>
+          <label
+            >Page:
+            <input type="range" step="1" min="1" v-model.number="currentPage" :max="maxPageCount" />
+            {{ currentPage }}/{{ maxPageCount }}
+          </label>
+        </div>
+      </div>
+    </section>
     <section>
       <ul>
         <li v-for="game in games" :key="game.name">
@@ -39,6 +86,17 @@ import games from '@/assets/data/games.json'
 </template>
 
 <style scoped>
+.gameFilters {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--primary);
+  border: 2px solid var(--secondary);
+  color: var(--white);
+}
+input {
+  margin: 0 10px;
+}
 ul {
   margin: 20px;
   display: flex;

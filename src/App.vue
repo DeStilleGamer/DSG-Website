@@ -23,6 +23,7 @@ import { MainFooter, MainHeader } from './components/main'
   --accent-light: #058c42;
   --accent-dark: #0d2818;
   --black: #020202;
+  --white: white;
 }
 
 body {

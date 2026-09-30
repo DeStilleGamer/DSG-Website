@@ -42,7 +42,4 @@ import { MainTitle, MainWIP } from '@/components/main'
   list-style-position: inside;
   list-style-type: disc;
 }
-#socials a {
-  color: var(--white);
-}
 </style>

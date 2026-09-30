@@ -39,4 +39,8 @@ body {
 #footer {
   margin-top: auto;
 }
+
+a {
+  color: var(--white);
+}
 </style>

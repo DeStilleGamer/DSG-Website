@@ -21,7 +21,7 @@ import games from '@/assets/data/games.json'
             <img
               :src="`https://i.ytimg.com/vi/${game.coverVideoId}/hqdefault.jpg`"
               :alt="game.name"
-              class="playlist-thumb"
+              class="thumbnail"
             />
           </a>
           <div id="playlistTags">
@@ -40,7 +40,7 @@ import games from '@/assets/data/games.json'
 
 <style scoped>
 ul {
-  margin: 50px;
+  margin: 20px;
   display: flex;
   justify-self: center;
   flex-wrap: wrap;
@@ -50,23 +50,24 @@ ul {
 }
 li {
   list-style: none;
-  border: 2px solid green;
-  border-radius: 5px;
-  background-color: darkgreen;
-  box-shadow: 0px 0px 20px 1px lightgreen;
+  border: 2px solid var(--accent-dark);
+  border-radius: 15px;
+  background-color: var(--accent-light);
+  box-shadow: 0px 0px 20px 1px var(--accent-light);
 }
 
 h2 {
-  color: white;
+  color: var(--white);
 }
 h3 {
-  color: white;
+  color: var(--white);
   padding: 5px;
   text-align: center;
 }
 #playlistTags {
   padding: 5px;
   max-width: fit-content;
+  margin: 0 0 5px 5px;
 }
 p {
   padding: 5px;
@@ -98,16 +99,17 @@ p {
   background-color: rgb(71, 71, 199);
 }
 
-.playlist-thumb {
+.thumbnail {
+  margin: 15px;
   width: 100%;
   max-width: 400px;
   border-radius: 12px;
   cursor: pointer;
   transition: 0.2s;
-  border: 2px solid lightgreen;
+  border: 2px solid var(--secondary);
 }
 
-.playlist-thumb:hover {
+.thumbnail:hover {
   /* opacity: 1.15; */
   transform: scale(1.02);
 }

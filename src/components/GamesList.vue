@@ -1,17 +1,25 @@
 <script setup>
 import rawGamesData from '@/assets/data/games.json';
 import { ref, computed, watch } from 'vue';
+const gameStatusList = ref([
+  { status: 1, name: 'Not yet played' },
+  { status: 2, name: 'Currently streaming' },
+  { status: 3, name: 'Done streaming' },
+  { status: 4, name: 'On pauze' },
+  { status: 5, name: 'Discontinued' },
+  { status: 6, name: 'Planned to re-stream' },
+]);
 
-let gamesData = ref(rawGamesData);
-let currentPage = ref(1);
-let gameCount = ref(8);
-let searchText = ref('');
+const gamesData = ref(rawGamesData);
+const currentPage = ref(1);
+const gameCount = ref(8);
+const searchText = ref('');
 
-let maxGames = computed(() => {
+const maxGames = computed(() => {
   return gamesData.value.length;
 });
 
-let maxPageCount = computed(() => {
+const maxPageCount = computed(() => {
   return Math.ceil(gamesData.value.length / gameCount.value);
 });
 
@@ -21,13 +29,13 @@ watch(maxPageCount, (newMax) => {
   }
 });
 
-let startCount = computed(() => {
+const startCount = computed(() => {
   return (currentPage.value - 1) * gameCount.value;
 });
 
 // filter on the games
-let games = computed(() => {
-  let gamesList = ref(gamesData.value);
+const games = computed(() => {
+  const gamesList = ref(gamesData.value);
 
   // filter on the search
   if (searchText.value != '') {
@@ -42,9 +50,14 @@ let games = computed(() => {
 });
 
 // amount of games that are visible
-let visibleGames = computed(() => {
+const visibleGames = computed(() => {
   return games.value.length;
 });
+
+// game status tag
+const getGameStatus = (status) => {
+  return gameStatusList.value.find((s) => s.status === status);
+};
 </script>
 
 <template>
@@ -88,12 +101,9 @@ let visibleGames = computed(() => {
             />
           </a>
           <div id="playlistTags">
-            <p v-if="game.status == 1" class="s1">Not yet played</p>
-            <p v-if="game.status == 2" class="s2">Currently streaming</p>
-            <p v-if="game.status == 3" class="s3">Done streaming</p>
-            <p v-if="game.status == 4" class="s4">On pauze</p>
-            <p v-if="game.status == 5" class="s5">Discontinued</p>
-            <p v-if="game.status == 6" class="s6">Planned to re-stream</p>
+            <p v-if="getGameStatus(game.status)" :class="'s' + game.status">
+              {{ getGameStatus(game.status).name }}
+            </p>
           </div>
         </li>
       </ul>

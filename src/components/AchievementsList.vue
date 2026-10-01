@@ -2,16 +2,16 @@
 import rawAchievementsData from '@/assets/data/achievements.json';
 import { ref, computed, watch } from 'vue';
 
-let achievementsData = ref(rawAchievementsData);
-let currentPage = ref(1);
-let achievementCount = ref(8);
-let searchText = ref('');
+const achievementsData = ref(rawAchievementsData);
+const currentPage = ref(1);
+const achievementCount = ref(8);
+const searchText = ref('');
 
-let maxAchievements = computed(() => {
+const maxAchievements = computed(() => {
   return achievementsData.value.length;
 });
 
-let maxPageCount = computed(() => {
+const maxPageCount = computed(() => {
   return Math.ceil(achievementsData.value.length / achievementCount.value);
 });
 
@@ -21,13 +21,13 @@ watch(maxPageCount, (newMax) => {
   }
 });
 
-let startCount = computed(() => {
+const startCount = computed(() => {
   return (currentPage.value - 1) * achievementCount.value;
 });
 
 // filter on the achievements
-let achievements = computed(() => {
-  let achievementsList = ref(achievementsData.value);
+const achievements = computed(() => {
+  const achievementsList = ref(achievementsData.value);
 
   // filter on the search
   if (searchText.value != '') {
@@ -45,7 +45,7 @@ let achievements = computed(() => {
 });
 
 // amount of achievements that are visible
-let visibleAchievements = computed(() => {
+const visibleAchievements = computed(() => {
   return achievements.value.length;
 });
 </script>

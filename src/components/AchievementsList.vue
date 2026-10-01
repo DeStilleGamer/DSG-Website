@@ -1,9 +1,84 @@
 <script setup>
-import achievements from '@/assets/data/achievements.json'
+import rawAchievementsData from '@/assets/data/achievements.json';
+import { ref, computed, watch } from 'vue';
+
+let achievementsData = ref(rawAchievementsData);
+let currentPage = ref(1);
+let achievementCount = ref(8);
+let searchText = ref('');
+
+let maxAchievements = computed(() => {
+  return achievementsData.value.length;
+});
+
+let maxPageCount = computed(() => {
+  return Math.ceil(achievementsData.value.length / achievementCount.value);
+});
+
+watch(maxPageCount, (newMax) => {
+  if (currentPage.value > newMax) {
+    currentPage.value = newMax;
+  }
+});
+
+let startCount = computed(() => {
+  return (currentPage.value - 1) * achievementCount.value;
+});
+
+// filter on the achievements
+let achievements = computed(() => {
+  let achievementsList = ref(achievementsData.value);
+
+  // filter on the search
+  if (searchText.value != '') {
+    achievementsList.value = achievementsList.value.filter((g) =>
+      g.name.toLowerCase().includes(searchText.value.toLowerCase()),
+    );
+  }
+
+  // page
+  achievementsList.value = achievementsList.value.slice(
+    startCount.value,
+    startCount.value + achievementCount.value,
+  );
+  return achievementsList.value;
+});
+
+// amount of achievements that are visible
+let visibleAchievements = computed(() => {
+  return achievements.value.length;
+});
 </script>
 <template>
   <section>
-    <section></section>
+    <section class="achievementFilters">
+      <h2>Filters</h2>
+      <!-- <pre>{{ { currentPage, achievementCount, startCount, visibleAchievements } }}</pre> debug text -->
+      <div>
+        <label
+          >Achievement count:
+          <input
+            type="range"
+            step="1"
+            min="1"
+            v-model.number="achievementCount"
+            :max="maxAchievements"
+          />
+          {{ visibleAchievements }}
+        </label>
+        <br />
+        <label
+          >Page:
+          <input type="range" step="1" min="1" v-model.number="currentPage" :max="maxPageCount" />
+          {{ currentPage }}/{{ maxPageCount }}
+        </label>
+        <br />
+        <label>
+          Search:
+          <input type="text" v-model="searchText" />
+        </label>
+      </div>
+    </section>
     <section>
       <ul>
         <li v-for="achievement in achievements" :key="achievement.name">
@@ -30,8 +105,19 @@ import achievements from '@/assets/data/achievements.json'
 </template>
 
 <style scoped>
+.achievementFilters {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--primary);
+  border: 2px solid var(--secondary);
+  color: var(--white);
+}
+input {
+  margin: 0 10px;
+}
 ul {
-  margin: 50px;
+  margin: 20px;
   display: flex;
   justify-self: center;
   flex-wrap: wrap;

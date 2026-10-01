@@ -1,36 +1,50 @@
 <script setup>
-import rawGamesData from '@/assets/data/games.json'
-import { ref, computed, watch } from 'vue'
+import rawGamesData from '@/assets/data/games.json';
+import { ref, computed, watch } from 'vue';
 
-let gamesData = ref(rawGamesData)
-let currentPage = ref(1)
-let gameCount = ref(8)
+let gamesData = ref(rawGamesData);
+let currentPage = ref(1);
+let gameCount = ref(8);
+let searchText = ref('');
 
 let maxGames = computed(() => {
-  return gamesData.value.length
-})
+  return gamesData.value.length;
+});
 
 let maxPageCount = computed(() => {
-  return Math.ceil(gamesData.value.length / gameCount.value)
-})
+  return Math.ceil(gamesData.value.length / gameCount.value);
+});
 
 watch(maxPageCount, (newMax) => {
   if (currentPage.value > newMax) {
-    currentPage.value = newMax
+    currentPage.value = newMax;
   }
-})
+});
 
 let startCount = computed(() => {
-  return (currentPage.value - 1) * gameCount.value
-})
+  return (currentPage.value - 1) * gameCount.value;
+});
 
+// filter on the games
 let games = computed(() => {
-  return gamesData.value.slice(startCount.value, startCount.value + gameCount.value)
-})
+  let gamesList = ref(gamesData.value);
 
+  // filter on the search
+  if (searchText.value != '') {
+    gamesList.value = gamesList.value.filter((g) =>
+      g.name.toLowerCase().includes(searchText.value.toLowerCase()),
+    );
+  }
+
+  // page
+  gamesList.value = gamesList.value.slice(startCount.value, startCount.value + gameCount.value);
+  return gamesList.value;
+});
+
+// amount of games that are visible
 let visibleGames = computed(() => {
-  return games.value.length
-})
+  return games.value.length;
+});
 </script>
 
 <template>
@@ -39,20 +53,22 @@ let visibleGames = computed(() => {
       <h2>Filters</h2>
       <!-- <pre>{{ { currentPage, gameCount, startCount, visibleGames } }}</pre> debug text -->
       <div>
-        <div>
-          <label
-            >Game count:
-            <input type="range" step="1" min="1" v-model.number="gameCount" :max="maxGames" />
-            {{ visibleGames }}
-          </label>
-        </div>
-        <div>
-          <label
-            >Page:
-            <input type="range" step="1" min="1" v-model.number="currentPage" :max="maxPageCount" />
-            {{ currentPage }}/{{ maxPageCount }}
-          </label>
-        </div>
+        <label
+          >Game count:
+          <input type="range" step="1" min="1" v-model.number="gameCount" :max="maxGames" />
+          {{ visibleGames }}
+        </label>
+        <br />
+        <label
+          >Page:
+          <input type="range" step="1" min="1" v-model.number="currentPage" :max="maxPageCount" />
+          {{ currentPage }}/{{ maxPageCount }}
+        </label>
+        <br />
+        <label>
+          Search:
+          <input type="text" v-model="searchText" />
+        </label>
       </div>
     </section>
     <section>
